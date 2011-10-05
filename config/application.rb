@@ -46,7 +46,8 @@ module Avaliaprof
     config.filter_parameters += [:password]
 
     # Enable the asset pipeline
-    config.assets.enabled = true
+    # >>>>> estava true, mas enche o saco
+    config.assets.enabled = false
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
