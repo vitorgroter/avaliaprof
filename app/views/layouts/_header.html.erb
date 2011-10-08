@@ -4,14 +4,15 @@
     <ul>
       <li><%= link_to "Inicio", root_path %></li>
       <% if signed_in? %>
-      <li><%= link_to "Profile", current_user %></li>
+      <li><%= link_to "Usuarios", users_path %></li>
+      <li><%= link_to "Perfil", current_user %></li>
+      <li><%= link_to "Configuracoes", edit_user_path(current_user) %></li>
       <% end %>
-      <li><%= link_to "Ajuda", help_path %></li>
       <% if signed_in? %>
-      <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+      <li><%= link_to "Sair", signout_path, :method => :delete %></li>
       <% else %>
-      <li><%= link_to "Cadastro", signup_path %></li>
-      <li><%= link_to "Sign in", signin_path %></li>
+      <li><%= link_to "Cadastrar", signup_path %></li>
+      <li><%= link_to "Entrar", signin_path %></li>
       <% end %>
     </ul>
   </nav>

@@ -24,7 +24,7 @@ describe "LayoutLinks" do
 
   it "should have a signup page at '/signup'" do
     get '/signup'
-    response.should have_selector('title', :content => "Cadastro")
+    response.should have_selector('title', :content => "Cadastrar")
   end
 
   it "should have the right links on the layout" do
@@ -37,8 +37,8 @@ describe "LayoutLinks" do
     response.should have_selector('title', :content => "Sobre")
     click_link "Inicio"
     response.should have_selector('title', :content => "Inicio")
-    click_link "Cadastro"
-    response.should have_selector('title', :content => "Cadastro")
+    click_link "Cadastrar"
+    response.should have_selector('title', :content => "Cadastrar")
   end
 
 
@@ -46,7 +46,7 @@ describe "LayoutLinks" do
     it "should have a signin link" do
       visit root_path
       response.should have_selector("a", :href => signin_path,
-                                         :content => "Sign in")
+                                         :content => "Entrar")
     end
   end
 
@@ -63,13 +63,19 @@ describe "LayoutLinks" do
     it "should have a signout link" do
       visit root_path
       response.should have_selector("a", :href => signout_path,
-                                         :content => "Sign out")
+                                         :content => "Sair")
     end
 
     it "should have a profile link" do
       visit root_path
       response.should have_selector("a", :href => user_path(@user),
-                                         :content => "Profile")
+                                         :content => "Perfil")
+    end
+
+    it "should have a users link" do
+      visit root_path
+      response.should have_selector("a", :href => users_path,
+                                         :content => "Usuarios")
     end
   end
 end
