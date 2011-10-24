@@ -15,12 +15,22 @@ describe Subject do
 
   before(:each) do
     @attr = {
-      :description => "descricao",
-      :name => "materia"
+      :description => "Calculo 1",
+      :name => "MAT2453"
     }
   end
 
   it "should create a new instance given valid attributes" do
-    Micropost.create!(@attr)
+    Subject.create!(@attr)
+  end
+
+  it "should be in alphabetical order" do
+    @sb1 = Factory(:subject, :name => "D")
+    @sb2 = Factory(:subject, :name => "A")
+    @sb3 = Factory(:subject, :name => "C")
+    @sb4 = Factory(:subject, :name => "B")
+
+    Subject.all.should == [@sb2, @sb4, @sb3, @sb1]
   end
 end
+

@@ -10,5 +10,11 @@
 #
 
 class Subject < ActiveRecord::Base
-  attr_accessible :description
+  attr_accessible :code, :name, :description
+  has_many :subcomments
+
+  validates :code,  :presence => true
+  validates :name,  :presence => true
+
+  default_scope :order => 'subjects.code ASC'
 end

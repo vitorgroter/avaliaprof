@@ -164,4 +164,23 @@ describe User do
       @user.should be_admin
     end
   end
+
+  describe "subcomments associations" do
+
+    before(:each) do
+      @user = User.create(@attr)
+      @subject = Subject.create()
+      @mp1 = Factory(:subcomment, :user => @user, :subject => @subject,:created_at => 1.day.ago)
+      @mp2 = Factory(:subcomment, :user => @user, :subject => @subject,:created_at => 1.hour.ago)
+    end
+
+    it "should have a subcomments attribute" do
+      @user.should respond_to(:subcomments)
+    end
+
+    it "should have the right subcomments in the right order" do
+      @user.subcomments.should == [@mp2, @mp1]
+    end
+  end
 end
+

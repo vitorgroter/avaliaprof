@@ -1,0 +1,15 @@
+# == Schema Information
+#
+# Table name: teachers
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+class Professor < ActiveRecord::Base
+  attr_accessible :name
+
+  default_scope :order => 'name ASC'
+end

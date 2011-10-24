@@ -1,0 +1,9 @@
+<tr>
+  <td>
+    <span class="commentusername"><%= gravatar_for procomment.user, :size => 20 %> <%= procomment.user.name %></span><br />
+    <span><%= procomment.comment %></span><br />
+    <span class="commenttimestamp">
+      Posted <%= time_ago_in_words(procomment.created_at) %> ago.
+    </span><br /><br />
+  </td>
+</tr>

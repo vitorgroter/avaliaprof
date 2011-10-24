@@ -186,4 +186,42 @@ ul.users {
 
 .users li {
   list-style: none;
+  font-family: Courier New, Courier, monospace;
+  font-size: 1 em;
 }
+
+div.content
+{
+  padding: 0px 0px 0px 12px;
+}
+
+h3.comments
+{
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+table.comments td
+{
+  padding-bottom:20px;
+}
+
+span.nocomments
+{
+  color: #888;
+  font-style: italic;
+}
+
+span.commentusername
+{
+  font-size: 18px;
+}
+
+span.commenttimestamp
+{
+  color: #888;
+  font-style: italic;
+  font-size: 80%;
+}
+
+

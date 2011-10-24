@@ -1,0 +1,13 @@
+<tr>
+  <td>
+<% if subcomment.user == current_user %>
+    <span class="commentusername"><%= gravatar_for subcomment.user, :size => 20 %> <%= subcomment.user.name %></span><br />
+<% else %>
+    <span class="commentusername"><img src="anonimo.png" width="20" height="20" alt="Anonimo"> Anonimo</span><br />
+<% end %>
+    <span><%= subcomment.comment %></span><br />
+    <span class="commenttimestamp">
+      Posted <%= time_ago_in_words(subcomment.created_at) %> ago.
+    </span><br /><br />
+  </td>
+</tr>

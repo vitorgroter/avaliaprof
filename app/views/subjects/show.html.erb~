@@ -1,0 +1,15 @@
+<h1><%= @subject.code %></h1>
+<div class="content">
+<h2><%= @subject.name %></h2>
+<p><%= @subject.description %></p>
+<h3 class="comments">Comentarios</h3>
+<div class="comments">
+<% if @subject.subcomments.empty? %>
+<span class="nocomments">Sem comentarios</span>
+<% else %>
+<table class="comments">
+<%= render @subcomments %>
+</table>
+<% end %>
+</div>
+</div>

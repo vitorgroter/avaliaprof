@@ -1,0 +1,11 @@
+<h1><%= @professor.name %></h1>
+<div class="comments">
+<h2>Comentarios</h2>
+<% if @professor.procomments.empty? %>
+<span class="nocomments">Sem comentarios</span>
+<% else %>
+<table class="comments">
+<%= render @procomments %>
+</table>
+<% end %>
+</div>

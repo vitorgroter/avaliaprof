@@ -11,9 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111017140527) do
+ActiveRecord::Schema.define(:version => 20111024125317) do
+
+  create_table "procomments", :force => true do |t|
+    t.text     "comment"
+    t.integer  "user_id"
+    t.integer  "professor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "procomments", ["professor_id", "created_at"], :name => "index_procomments_on_professor_id_and_created_at"
+
+  create_table "professors", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subcomments", :force => true do |t|
+    t.text     "comment"
+    t.integer  "subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "subcomments", ["subject_id", "created_at"], :name => "index_subcomments_on_subject_id_and_created_at"
 
   create_table "subjects", :force => true do |t|
+    t.string   "code"
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"

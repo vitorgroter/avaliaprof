@@ -10,4 +10,8 @@
 #
 
 class Subject < ActiveRecord::Base
+  attr_accessible :code, :name, :description
+  has_many :subcomments
+
+  default_scope :order => 'subjects.code ASC'
 end

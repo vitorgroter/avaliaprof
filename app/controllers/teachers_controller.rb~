@@ -1,0 +1,11 @@
+class TeachersController < ApplicationController
+  def index
+    @title = "Professores"
+    @teachers = Teacher.all
+  end
+
+  def show
+    @subject = Teacher.find(params[:id])
+    @title = Teacher.name
+  end
+end

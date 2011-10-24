@@ -1,0 +1,4 @@
+<li>
+  <%= link_to subject.name, subject %>
+  <%= subject.description %>
+</li>
