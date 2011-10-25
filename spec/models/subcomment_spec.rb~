@@ -25,16 +25,16 @@ describe Subcomment do
   describe "user associations" do
 
     before(:each) do
-      @subject = @user.subcomments.create(@attr)
+      @subcomment = @user.subcomments.create(@attr)
     end
 
     it "should have a user attribute" do
-      @subject.should respond_to(:user)
+      @subcomment.should respond_to(:user)
     end
 
     it "should have the right associated user" do
-      @subject.user_id.should == @user.id
-      @subject.user.should == @user
+      @subcomment.user_id.should == @user.id
+      @subcomment.user.should == @user
     end
   end
 
@@ -45,10 +45,6 @@ describe Subcomment do
 
     it "should require nonblank content" do
       @user.subcomments.build(:comment => "  ").should_not be_valid
-    end
-
-    it "should reject long content" do
-      @user.subcomments.build(:comment => "a" * 141).should_not be_valid
     end
   end
 end

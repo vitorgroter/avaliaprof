@@ -11,7 +11,7 @@
 #
 
 class Subcomment < ActiveRecord::Base
-  attr_accessible :comment, :subject_id
+  attr_accessible :comment, :subject
   belongs_to :user
   belongs_to :subject
 

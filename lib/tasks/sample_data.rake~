@@ -14,7 +14,19 @@ namespace :db do
                  :password_confirmation => "pokemon123")
     admin.toggle!(:admin)
 
-    98.times do |n|
+    admin = User.create!(:name => "Peterson",
+                 :email => "petersonmk@gmail.com",
+                 :password => "peterson",
+                 :password_confirmation => "peterson")
+    admin.toggle!(:admin)
+
+    admin = User.create!(:name => "Nathalia",
+                 :email => "nmoliveira@usp.br",
+                 :password => "nathalia",
+                 :password_confirmation => "nathalia")
+    admin.toggle!(:admin)
+
+    96.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@example.com"
       password  = "password"
@@ -42,7 +54,7 @@ namespace :db do
 
     Subject.all.each do |subject|
       User.all(:limit => 6).each do |user|
-        user.subcomments.create!(:comment => Faker::Lorem.sentence(5), :subject_id => subject.id)
+        user.subcomments.create!(:comment => Faker::Lorem.sentence(5), :subject => subject)
       end
     end
 
@@ -54,3 +66,4 @@ namespace :db do
 
   end
 end
+

@@ -10,7 +10,9 @@
 
 class Professor < ActiveRecord::Base
   attr_accessible :name
-  has_many :procomments
+  has_many :procomments, :dependent => :destroy
+
+  validates :name,  :presence => true
 
   default_scope :order => 'name ASC'
 end

@@ -6,7 +6,9 @@ class SubjectsController < ApplicationController
 
   def show
     @subject = Subject.find(params[:id])
-    @title = @subject.name
+    @title = @subject.code
     @subcomments = @subject.subcomments
+    @subcomment = Subcomment.new if signed_in?
+    @subcomment.subject = @subject
   end
 end

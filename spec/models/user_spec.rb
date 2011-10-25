@@ -169,7 +169,7 @@ describe User do
 
     before(:each) do
       @user = User.create(@attr)
-      @subject = Subject.create()
+      @subject = Factory(:subject)
       @mp1 = Factory(:subcomment, :user => @user, :subject => @subject,:created_at => 1.day.ago)
       @mp2 = Factory(:subcomment, :user => @user, :subject => @subject,:created_at => 1.hour.ago)
     end
@@ -180,6 +180,38 @@ describe User do
 
     it "should have the right subcomments in the right order" do
       @user.subcomments.should == [@mp2, @mp1]
+    end
+
+    it "should destroy associated microposts" do
+      @user.destroy
+      [@mp1, @mp2].each do |subcomment|
+        Subcomment.find_by_id(subcomment.id).should be_nil
+      end
+    end
+  end
+
+  describe "procomments associations" do
+
+    before(:each) do
+      @user = User.create(@attr)
+      @professor = Factory(:professor)
+      @mp1 = Factory(:procomment, :user => @user, :professor => @professor,:created_at => 1.day.ago)
+      @mp2 = Factory(:procomment, :user => @user, :professor => @professor,:created_at => 1.hour.ago)
+    end
+
+    it "should have a procomments attribute" do
+      @user.should respond_to(:procomments)
+    end
+
+    it "should have the right procomments in the right order" do
+      @user.procomments.should == [@mp2, @mp1]
+    end
+
+    it "should destroy associated microposts" do
+      @user.destroy
+      [@mp1, @mp2].each do |procomment|
+        Procomment.find_by_id(procomment.id).should be_nil
+      end
     end
   end
 end

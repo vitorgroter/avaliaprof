@@ -3,11 +3,11 @@
 <% if subcomment.user == current_user %>
     <span class="commentusername"><%= gravatar_for subcomment.user, :size => 20 %> <%= subcomment.user.name %></span><br />
 <% else %>
-    <span class="commentusername"><img src="anonimo.png" width="20" height="20" alt="Anonimo"> Anonimo</span><br />
+    <span class="commentusername"><%= anonymous_image(:size => 20) %> Anonimo</span><br />
 <% end %>
     <span><%= subcomment.comment %></span><br />
     <span class="commenttimestamp">
-      Posted <%= time_ago_in_words(subcomment.created_at) %> ago.
-    </span><br /><br />
+      Postado há <%= time_ago_in_words(subcomment.created_at) %>.
+    </span>
   </td>
 </tr>

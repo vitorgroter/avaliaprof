@@ -6,9 +6,15 @@
         <%= @user.name %>
       </h1>
     </td>
-    <td class="sidebar round">
-      <strong>Name</strong> <%= @user.name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
-    </td>
   </tr>
+  <tr>
+    <td>
+      <%= @user.email %>
+    </td>
+  </td>
+  <tr>
+    <td>
+      <%= link_to "Editar", edit_user_path(current_user) %>
+    </td>
+  </td>
 </table>

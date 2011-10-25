@@ -1,0 +1,17 @@
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= @user.email %>
+    </td>
+  </td>
+  <tr>
+    <td>
+      <%= link_to "Editar", edit_user_path(current_user) %>
+    </td>
+  </td>
+</table>

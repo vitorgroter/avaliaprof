@@ -8,5 +8,9 @@ class ProfessorsController < ApplicationController
     @professor = Professor.find(params[:id])
     @title = @professor.name
     @procomments = @professor.procomments
+    if signed_in?
+      @procomment = Procomment.new
+      @procomment.professor = @professor
+    end
   end
 end

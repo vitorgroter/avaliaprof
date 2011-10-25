@@ -11,7 +11,7 @@
 #
 
 class Procomment < ActiveRecord::Base
-  attr_accessible :comment, :professor_id
+  attr_accessible :comment, :professor
   belongs_to :user
   belongs_to :professor
 

@@ -13,10 +13,15 @@
   margin-right: auto;
 }
 
+@font-face {
+  font-family: Graublau Sans Web;
+  src: url(GraublauWeb.otf) format("opentype");
+}
+
 body {
   background: #ddd;
-  font-family: Verdana, Arial, Sans-Serif;
-  font-size: 9pt;
+  font-family: DejaVu Sans Mono, Droid Sans Mono, Inconsolata, Andale Mono, monospace;
+  font-size: 8pt;
 }
 
 header {
@@ -30,7 +35,6 @@ header img {
 
 section {
   margin-top: 1em;
-  font-size: 120%;
   padding: 20px;
   background: #eee;
 }
@@ -186,8 +190,8 @@ ul.users {
 
 .users li {
   list-style: none;
-  font-family: Courier New, Courier, monospace;
-  font-size: 1 em;
+  /*font-family: Consolas, Lucida Console, DejaVu Sans Mono, Andale Mono, Lucida Console, Courier New, Courier, monospace;*/
+  font-size: 100%;
 }
 
 div.content

@@ -15,7 +15,8 @@ require 'spec_helper'
 describe Procomment do
   before(:each) do
     @user = Factory(:user)
-    @attr = { :comment => "professor bom", :professor_id => 1}
+    @professor = Factory(:professor)
+    @attr = { :comment => "lol", :professor => @professor}
   end
 
   it "should create a new instance given valid attributes" do
@@ -44,11 +45,7 @@ describe Procomment do
     end
 
     it "should require nonblank content" do
-      @user.procomments.build(:comment => "  ").should_not be_valid
-    end
-
-    it "should reject long content" do
-      @user.procomments.build(:comment => "a" * 141).should_not be_valid
+      @user.procomments.build(:comment => "  ", :professor => @professor).should_not be_valid
     end
   end
 end

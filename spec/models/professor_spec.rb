@@ -30,5 +30,30 @@ describe Professor do
 
     Professor.all.should == [@te2, @te4, @te3, @te1]
   end
+
+
+  describe "procomments associations" do
+    before(:each) do
+      @user = Factory(:user)
+      @professor = Factory(:professor)
+      @mp1 = Factory(:procomment, :user => @user, :professor => @professor, :created_at => 1.day.ago)
+      @mp2 = Factory(:procomment, :user => @user, :professor => @professor, :created_at => 1.hour.ago)
+    end
+
+    it "should have a procomment attribute" do
+      @professor.should respond_to(:procomments)
+    end
+
+    it "should have the right procomment in the right order" do
+      @professor.procomments.should == [@mp2, @mp1]
+    end
+
+    it "should destroy associated procomments" do
+      @professor.destroy
+      [@mp1, @mp2].each do |procomment|
+        Procomment.find_by_id(procomment.id).should be_nil
+      end
+    end
+  end
 end
 

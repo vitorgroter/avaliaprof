@@ -11,14 +11,13 @@
 #
 
 class Procomment < ActiveRecord::Base
-  attr_accessible :comment, :professor_id
+  attr_accessible :comment, :professor
   belongs_to :user
   belongs_to :professor
 
   validates :comment, :presence => true
   validates :user_id, :presence => true
-  validates :professor_id, :presence => true
 
 
-  default_scope :order => 'procomment.created_at DESC'
+  default_scope :order => 'procomments.created_at DESC'
 end

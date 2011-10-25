@@ -15,12 +15,18 @@ namespace :db do
     admin.toggle!(:admin)
 
     admin = User.create!(:name => "Peterson",
-                 :email => "peterson@gmail.com",
+                 :email => "petersonmk@gmail.com",
                  :password => "peterson",
                  :password_confirmation => "peterson")
     admin.toggle!(:admin)
 
-    97.times do |n|
+    admin = User.create!(:name => "Nathalia",
+                 :email => "nmoliveira@usp.br",
+                 :password => "nathalia",
+                 :password_confirmation => "nathalia")
+    admin.toggle!(:admin)
+
+    96.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@example.com"
       password  = "password"
@@ -48,15 +54,16 @@ namespace :db do
 
     Subject.all.each do |subject|
       User.all(:limit => 6).each do |user|
-        user.subcomments.create!(:comment => Faker::Lorem.sentence(5), :subject_id => subject.id)
+        user.subcomments.create!(:comment => Faker::Lorem.sentence(5), :subject => subject)
       end
     end
 
     Professor.all.each do |professor|
       User.all(:limit => 6).each do |user|
-        user.procomments.create!(:comment => Faker::Lorem.sentence(5), :professor_id => professor.id)
+        user.procomments.create!(:comment => Faker::Lorem.sentence(5), :professor => professor)
       end
     end
 
   end
 end
+

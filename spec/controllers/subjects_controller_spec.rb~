@@ -5,9 +5,9 @@ describe SubjectsController do
 
   describe "GET 'index'" do
     before(:each) do
-      first = Factory(:subject, :name => "A", :description => "Materia A")
-      second = Factory(:subject, :name => "B", :description => "Materia B")
-      third  = Factory(:subject, :name => "C", :description => "Materia C")
+      first = Factory(:subject, :code => "A", :description => "Materia A")
+      second = Factory(:subject, :code => "B", :description => "Materia B")
+      third  = Factory(:subject, :code => "C", :description => "Materia C")
 
       @subjects = [first, second, third]
     end
@@ -25,7 +25,7 @@ describe SubjectsController do
     it "should have an element for each user" do
       get :index
       @subjects.each do |subject|
-        response.should have_selector("li", :content => subject.name)
+        response.should have_selector("li", :content => subject.code)
       end
     end
   end

@@ -1,4 +1,3 @@
-# By using the symbol ':user', we get Factory Girl to simulate the User model.
 Factory.define :user do |user|
   user.name                  "Nome"
   user.email                 "example@example.com"
@@ -11,7 +10,8 @@ Factory.sequence :email do |n|
 end
 
 Factory.define :subject do |subject|
-  subject.description "Calculo 1"
+  subject.description "Calculo eh muito importante"
+  subject.name "Calculo 1"
   subject.code "MAT2453"
 end
 
@@ -25,8 +25,9 @@ Factory.define :subcomment do |subcomment|
   subcomment.association :subject
 end
 
-Factory.define :procomment do |subcomment|
-  subcomment.comment "professor bom"
-  subcomment.association :user
-  subcomment.association :professor
+Factory.define :procomment do |procomment|
+  procomment.comment "professor bom"
+  procomment.association :user
+  procomment.association :professor
 end
+

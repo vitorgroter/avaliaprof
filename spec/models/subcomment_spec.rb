@@ -15,7 +15,8 @@ require 'spec_helper'
 describe Subcomment do
   before(:each) do
     @user = Factory(:user)
-    @attr = { :comment => "materia importante", :subject_id => 1}
+    @subject = Factory(:subject)
+    @attr = { :comment => "materia importante", :subject => @subject}
   end
 
   it "should create a new instance given valid attributes" do
@@ -45,10 +46,6 @@ describe Subcomment do
 
     it "should require nonblank content" do
       @user.subcomments.build(:comment => "  ").should_not be_valid
-    end
-
-    it "should reject long content" do
-      @user.subcomments.build(:comment => "a" * 141).should_not be_valid
     end
   end
 end

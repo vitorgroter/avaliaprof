@@ -3,6 +3,8 @@ Avaliaprof::Application.routes.draw do
   resources :subjects, :only => [:index, :show]
   resources :professors, :only => [:index, :show]
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :subcomments, :only => [:create, :destroy]
+  resources :procomments, :only => [:create, :destroy]
 
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'

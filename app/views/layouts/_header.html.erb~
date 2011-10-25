@@ -4,7 +4,7 @@
     <ul>
       <li><%= link_to "Inicio", root_path %></li>
       <li><%= link_to "Materias", subjects_path %></li>
-      <li><%= link_to "Professores", teachers_path %></li>
+      <li><%= link_to "Professores", professors_path %></li>
       <% if signed_in? %>
       <li><%= link_to "Usuarios", users_path %></li>
       <li><%= link_to "Perfil", current_user %></li>

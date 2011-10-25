@@ -1,9 +1,13 @@
 <tr>
   <td>
+<% if procomment.user == current_user %>
     <span class="commentusername"><%= gravatar_for procomment.user, :size => 20 %> <%= procomment.user.name %></span><br />
+<% else %>
+    <span class="commentusername"><%= anonymous_image(:size => 20) %> Anonimo</span><br />
+<% end %>
     <span><%= procomment.comment %></span><br />
     <span class="commenttimestamp">
-      Posted <%= time_ago_in_words(procomment.created_at) %> ago.
-    </span><br /><br />
+      Postado há <%= time_ago_in_words(procomment.created_at) %>.
+    </span>
   </td>
 </tr>

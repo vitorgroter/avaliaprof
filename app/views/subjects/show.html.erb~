@@ -3,7 +3,8 @@
 <h2><%= @subject.name %></h2>
 <p><%= @subject.description %></p>
 <h3 class="comments">Comentarios</h3>
-<div class="comments">
+<div class="content">
+
 <% if @subject.subcomments.empty? %>
 <span class="nocomments">Sem comentarios</span>
 <% else %>
@@ -11,5 +12,17 @@
 <%= render @subcomments %>
 </table>
 <% end %>
+
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h3>Envie um comentario</h1>
+        <%= render 'shared/subcomment_form' %>
+      </td>
+    </tr>
+  </table>
+<% end %>
+
 </div>
 </div>

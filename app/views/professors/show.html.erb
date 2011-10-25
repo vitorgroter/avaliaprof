@@ -1,6 +1,8 @@
 <h1><%= @professor.name %></h1>
-<h2>Comentarios</h2>
-<div class="comments">
+<div class="content">
+<h3 class="comments">Comentarios</h3>
+<div class="content">
+
 <% if @professor.procomments.empty? %>
 <span class="nocomments">Sem comentarios</span>
 <% else %>
@@ -8,4 +10,17 @@
 <%= render @procomments %>
 </table>
 <% end %>
+
+<% if signed_in? %>
+  <table summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h3>Envie um comentario</h1>
+        <%= render 'shared/procomment_form' %>
+      </td>
+    </tr>
+  </table>
+<% end %>
+
+</div>
 </div>
