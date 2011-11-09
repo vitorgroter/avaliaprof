@@ -35,6 +35,7 @@ describe SubjectsController do
     before(:each) do
       @user = Factory(:user)
       @subject = Factory(:subject)
+      test_sign_in(@user)
     end
 
     it "should show the subject's subcomments" do

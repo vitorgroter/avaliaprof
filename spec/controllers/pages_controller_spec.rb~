@@ -4,7 +4,7 @@ describe PagesController do
   render_views
 
   before(:each) do
-    @base_title = "Polidex | "
+    @base_title = "AvaliaProf | "
   end
 
   describe "GET 'home'" do

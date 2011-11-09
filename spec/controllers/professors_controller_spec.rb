@@ -35,6 +35,7 @@ describe ProfessorsController do
     before(:each) do
       @user = Factory(:user)
       @professor = Factory(:professor)
+      test_sign_in(@user)
     end
 
     it "should show the professor's procomments" do

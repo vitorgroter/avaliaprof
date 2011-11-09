@@ -40,7 +40,7 @@ describe SubjectsController do
     it "should show the subject's subcomments" do
       mp1 = Factory(:subcomment, :user => @user, :subject => @subject, :comment => "Eeita")
       mp2 = Factory(:subcomment, :user => @user, :subject => @subject, :comment => "Nossa!")
-      get :show, :id => @subject
+      get :show, :id => @subject.id
       response.should have_selector("span", :content => mp1.comment)
       response.should have_selector("span", :content => mp2.comment)
     end

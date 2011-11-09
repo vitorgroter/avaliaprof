@@ -60,7 +60,7 @@ namespace :db do
 
     Professor.all.each do |professor|
       User.all(:limit => 6).each do |user|
-        user.procomments.create!(:comment => Faker::Lorem.sentence(5), :professor_id => professor.id)
+        user.procomments.create!(:comment => Faker::Lorem.sentence(5), :professor => professor)
       end
     end
 

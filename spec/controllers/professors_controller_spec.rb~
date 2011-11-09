@@ -37,7 +37,7 @@ describe ProfessorsController do
       @professor = Factory(:professor)
     end
 
-    it "should show the subject's subcomments" do
+    it "should show the professor's procomments" do
       mp1 = Factory(:procomment, :user => @user, :professor => @professor, :comment => "Eeita")
       mp2 = Factory(:procomment, :user => @user, :professor => @professor, :comment => "Nossa!")
       get :show, :id => @professor

@@ -1,13 +1,16 @@
 <tr>
   <td>
-<% if procomment.user == current_user %>
-    <span class="commentusername"><%= gravatar_for procomment.user, :size => 20 %> <%= procomment.user.name %></span><br />
-<% else %>
-    <span class="commentusername"><%= anonymous_image(:size => 20) %> Anonimo</span><br />
-<% end %>
+    <% if procomment.user == current_user %>
+      <span class="commentusername"><%= gravatar_for procomment.user, :size => 20 %> <%= procomment.user.name %></span><br />
+    <% else %>
+      <span class="commentusername"><%= anonymous_image(:size => 20) %> Anonimo</span><br />
+    <% end %>
+    <% if (current_user.admin? or procomment.user == current_user) %>
+      <span class="commentusername"><%= link_to "delete", procomment, :method => :delete, :confirm => "Tem certeza que deseja deletar o comentario?", :title => "Deletar comentario" %></span><br />
+    <% end %>
     <span><%= procomment.comment %></span><br />
     <span class="commenttimestamp">
-      Postado há <%= time_ago_in_words(subcomment.created_at) %>.
+      Postado há <%= time_ago_in_words(procomment.created_at) %>.
     </span>
   </td>
 </tr>
