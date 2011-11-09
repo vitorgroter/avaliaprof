@@ -1,3 +1,0 @@
-<li>
-  <%= link_to subject.code + ' -  ' + subject.name, subject %>
-</li>

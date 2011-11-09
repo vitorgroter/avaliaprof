@@ -1,8 +1,0 @@
-<h1>Professores</h1>
-
-<ul class="users">
-  <% @teachers.each do |teacher| %>
-    <%= render teacher %>
-  <% end %>
-</ul>
-

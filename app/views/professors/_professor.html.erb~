@@ -1,3 +1,0 @@
-<li>
-  <%= link_to teacher.name, teacher %>
-</li>
