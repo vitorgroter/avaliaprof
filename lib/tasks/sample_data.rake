@@ -36,20 +36,42 @@ namespace :db do
                    :password_confirmation => password)
     end
 
-    Subject.create!(:code => "MAT2453", :name => "Calculo Diferencial e Integral para Engenharia I", :description => "Materia cujo objetivo eh ensinar calculo diferencial e integral aos alunos...")
-    Subject.create!(:code => "MAT2454", :name => "Calculo Diferencial e Integral para Engenharia II", :description => "Materia cujo objetivo eh ensinar calculo diferencial e integral aos alunos...")
-    Subject.create!(:code => "MAT2455", :name => "Calculo Diferencial e Integral para Engenharia III", :description => "Materia cujo objetivo eh ensinar calculo diferencial e integral aos alunos...")
-    Subject.create!(:code => "MAT2456", :name => "Calculo Diferencial e Integral para Engenharia IV", :description => "Materia cujo objetivo eh ensinar calculo diferencial e integral aos alunos...")
-    Subject.create!(:code => "MAT2457", :name => "Algebra Linear para Engenharia I", :description => "Materia cujo objetivo eh ensinar algebra linear aos alunos...")
-    Subject.create!(:code => "MAT2458", :name => "Algebra Linear para Engenharia II", :description => "Materia cujo objetivo eh ensinar algebra linear aos alunos...")
-    Subject.create!(:code => "PSI2222", :name => "Praticas de Eletrecidade e Eletronica II", :description => "Materia cujo objetivo eh fazer coisas...")
-    Subject.create!(:code => "MAC2166", :name => "Introducao a Computacao para Engenharia", :description => "Materia cujo objetivo eh ensinar computacao aos alunos...")
+    calc1 = Subject.create!(:code => "MAT2453", :name => "Calculo Diferencial e Integral para Engenharia I",
+                            :description => "Materia cujo objetivo eh ensinar calculo diferencial e integral aos alunos...")
+    calc2 = Subject.create!(:code => "MAT2454", :name => "Calculo Diferencial e Integral para Engenharia II",
+                            :description => "Materia cujo objetivo eh ensinar calculo diferencial e integral aos alunos...")
+    calc3 = Subject.create!(:code => "MAT2455", :name => "Calculo Diferencial e Integral para Engenharia III",
+                            :description => "Materia cujo objetivo eh ensinar calculo diferencial e integral aos alunos...")
+    calc4 = Subject.create!(:code => "MAT2456", :name => "Calculo Diferencial e Integral para Engenharia IV",
+                            :description => "Materia cujo objetivo eh ensinar calculo diferencial e integral aos alunos...")
+    algelin1 = Subject.create!(:code => "MAT2457", :name => "Algebra Linear para Engenharia I",
+                               :description => "Materia cujo objetivo eh ensinar algebra linear aos alunos...")
+    algelin2 = Subject.create!(:code => "MAT2458", :name => "Algebra Linear para Engenharia II",
+                               :description => "Materia cujo objetivo eh ensinar algebra linear aos alunos...")
+    circ1 = Subject.create!(:code => "PSI2211", :name => "Circuitos Eletricos I",
+                            :description => "Materia cujo objetivo eh aprender circuitos...")
+    circ2 = Subject.create!(:code => "PSI2212", :name => "Circuitos Eletricos II",
+                            :description => "Materia cujo objetivo eh aprender circuitos...")
+    praticas = Subject.create!(:code => "PSI2222", :name => "Praticas de Eletrecidade e Eletronica II",
+                               :description => "Materia cujo objetivo eh fazer coisas...")
+    comp = Subject.create!(:code => "MAC2166", :name => "Introducao a Computacao para Engenharia",
+                           :description => "Materia cujo objetivo eh ensinar computacao aos alunos...")
 
-    Professor.create!(:name => "Arnaldo")
-    Professor.create!(:name => "Zucchi")
-    Professor.create!(:name => "Toledo")
-    Professor.create!(:name => "Lebensztajn")
-    Professor.create!(:name => "Pait")
+    arnaldo = Professor.create!(:name => "Arnaldo")
+    zucchi = Professor.create!(:name => "Zucchi")
+    magno = Professor.create!(:name => "Magno")
+    toledo = Professor.create!(:name => "Toledo")
+    leb = Professor.create!(:name => "Lebensztajn")
+    pait = Professor.create!(:name => "Pait")
+    deborah = Professor.create!(:name => "Deborah")
+
+    calc1.professors << deborah
+    comp.professors  << arnaldo
+    circ1.professors << zucchi
+    circ2.professors << zucchi
+    circ1.professors << magno
+    circ2.professors << magno
+
 
 
     Subject.all.each do |subject|

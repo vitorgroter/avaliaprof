@@ -1,26 +1,34 @@
 <h1><%= @professor.name %></h1>
 <div class="content">
-<h3 class="comments">Comentarios</h3>
-<div class="content">
+	<h3 class="comments">Disciplinas associadas</h3>
+	<div class="content">
+		<% if @professor.subjects.empty? %>
+			<span class="nocomments">Nenhuma disciplina encontrada</span>
+		<% else %>
+			<%= render @professor.subjects %>
+		<% end %>
+	</div>
 
-<% if @professor.procomments.empty? %>
-<span class="nocomments">Sem comentarios</span>
-<% else %>
-<table class="comments">
-<%= render @procomments %>
-</table>
-<% end %>
+	<h3 class="comments">Comentarios</h3>
+	<div class="content">
+		<% if @professor.procomments.empty? %>
+			<span class="nocomments">Sem comentarios</span>
+		<% else %>
+			<table class="comments">
+				<%= render @procomments %>
+			</table>
+		<% end %>
 
-<% if signed_in? %>
-  <table summary="For signed-in users">
-    <tr>
-      <td class="main">
-        <h3>Envie um comentario</h1>
-        <%= render 'shared/procomment_form' %>
-      </td>
-    </tr>
-  </table>
-<% end %>
+		<% if signed_in? %>
+			<table summary="For signed-in users">
+				<tr>
+					<td class="main">
+						<h3>Envie um comentario</h3>
+						<%= render 'shared/procomment_form' %>
+					</td>
+				</tr>
+			</table>
+		<% end %>
 
-</div>
+	</div>
 </div>

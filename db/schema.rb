@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111024125317) do
+ActiveRecord::Schema.define(:version => 20111110143848) do
 
   create_table "procomments", :force => true do |t|
     t.text     "comment"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(:version => 20111024125317) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "professors_subjects", :id => false, :force => true do |t|
+    t.integer "professor_id"
+    t.integer "subject_id"
   end
 
   create_table "subcomments", :force => true do |t|

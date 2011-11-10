@@ -1,28 +1,37 @@
 <h1><%= @subject.code %></h1>
 <div class="content">
-<h2><%= @subject.name %></h2>
-<p><%= @subject.description %></p>
-<h3 class="comments">Comentarios</h3>
-<div class="content">
+	<h2><%= @subject.name %></h2>
+	<p><%= @subject.description %></p>
 
-<% if @subject.subcomments.empty? %>
-<span class="nocomments">Sem comentarios</span>
-<% else %>
-<table class="comments">
-<%= render @subcomments %>
-</table>
-<% end %>
+	<h3 class="comments">Professores associados</h3>
+	<div class="content">
+		<% if @subject.professors.empty? %>
+			<span class="nocomments">Nenhum professor encontrado</span>
+		<% else %>
+			<%= render @subject.professors %>
+		<% end %>
+	</div>
 
-<% if signed_in? %>
-  <table summary="For signed-in users">
-    <tr>
-      <td class="main">
-        <h3>Envie um comentario</h1>
-        <%= render 'shared/subcomment_form' %>
-      </td>
-    </tr>
-  </table>
-<% end %>
+	<h3 class="comments">Comentarios</h3>
+	<div class="content">
+		<% if @subject.subcomments.empty? %>
+			<span class="nocomments">Sem comentarios</span>
+		<% else %>
+			<table class="comments">
+				<%= render @subcomments %>
+			</table>
+		<% end %>
 
-</div>
+		<% if signed_in? %>
+			<table summary="For signed-in users">
+				<tr>
+					<td class="main">
+						<h3>Envie um comentario</h1>
+						<%= render 'shared/subcomment_form' %>
+					</td>
+				</tr>
+			</table>
+		<% end %>
+
+	</div>
 </div>
