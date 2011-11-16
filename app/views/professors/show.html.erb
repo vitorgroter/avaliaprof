@@ -1,5 +1,17 @@
 <h1><%= @professor.name %></h1>
 <div class="content">
+	<h3 class="comments">Estrelas</h3>
+	<div class="content">
+		<% if @stars.nil? %>
+			<span class="nocomments">Nenhuma estrela</span>
+		<% else %>
+			Media: <%= @stars %> estrelas<br/><br/>
+		<% end %>
+		<% unless @star.nil? %>
+			<h3>Sua estrela:</h3>
+			<%= render 'shared/prof_stars_form' %>
+		<% end %>
+	</div>
 	<h3 class="comments">Disciplinas associadas</h3>
 	<div class="content">
 		<% if @professor.subjects.empty? %>

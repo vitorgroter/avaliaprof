@@ -77,12 +77,14 @@ namespace :db do
     Subject.all.each do |subject|
       User.all(:limit => 6).each do |user|
         user.subcomments.create!(:comment => Faker::Lorem.sentence(5), :subject => subject)
+        user.sub_stars.create!(:stars => 2 + rand(4), :subject => subject)
       end
     end
 
     Professor.all.each do |professor|
       User.all(:limit => 6).each do |user|
         user.procomments.create!(:comment => Faker::Lorem.sentence(5), :professor => professor)
+        user.prof_stars.create!(:stars => 2 + rand(4), :professor => professor)
       end
     end
 

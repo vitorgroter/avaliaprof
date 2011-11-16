@@ -3,6 +3,19 @@
 	<h2><%= @subject.name %></h2>
 	<p><%= @subject.description %></p>
 
+	<h3 class="comments">Estrelas</h3>
+	<div class="content">
+		<% if @stars.nil? %>
+			<span class="nocomments">Nenhuma estrela</span>
+		<% else %>
+			Media: <%= @stars %> estrelas<br/><br/>
+		<% end %>
+		<% unless @star.nil? %>
+			<h3>Sua estrela:</h3>
+			<%= render 'shared/sub_stars_form' %>
+		<% end %>
+	</div>
+
 	<h3 class="comments">Professores associados</h3>
 	<div class="content">
 		<% if @subject.professors.empty? %>

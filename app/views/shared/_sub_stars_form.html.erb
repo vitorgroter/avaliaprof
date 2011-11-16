@@ -1,0 +1,24 @@
+<%= form_for @star do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.radio_button(:stars, 0) %>
+    <%= f.label(:star0, "0") %>
+    <%= f.radio_button(:stars, 1) %>
+    <%= f.label(:star1, "1") %>
+    <%= f.radio_button(:stars, 2) %>
+    <%= f.label(:star2, "2") %>
+    <%= f.radio_button(:stars, 3) %>
+    <%= f.label(:star3, "3") %>
+    <%= f.radio_button(:stars, 4) %>
+    <%= f.label(:star4, "4") %>
+    <%= f.radio_button(:stars, 5) %>
+    <%= f.label(:star5, "5") %>
+    
+    <%= f.hidden_field :subject_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Enviar" %>
+  </div>
+<% end %>
+

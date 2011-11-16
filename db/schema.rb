@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111110143848) do
+ActiveRecord::Schema.define(:version => 20111116020002) do
 
   create_table "procomments", :force => true do |t|
     t.text     "comment"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(:version => 20111110143848) do
 
   add_index "procomments", ["professor_id", "created_at"], :name => "index_procomments_on_professor_id_and_created_at"
 
+  create_table "prof_stars", :force => true do |t|
+    t.integer  "professor_id"
+    t.integer  "stars"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "prof_stars", ["professor_id", "user_id"], :name => "index_prof_stars_on_professor_id_and_user_id", :unique => true
+
   create_table "professors", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -33,6 +43,16 @@ ActiveRecord::Schema.define(:version => 20111110143848) do
     t.integer "professor_id"
     t.integer "subject_id"
   end
+
+  create_table "sub_stars", :force => true do |t|
+    t.integer  "subject_id"
+    t.integer  "user_id"
+    t.integer  "stars"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sub_stars", ["subject_id", "user_id"], :name => "index_sub_stars_on_subject_id_and_user_id", :unique => true
 
   create_table "subcomments", :force => true do |t|
     t.text     "comment"

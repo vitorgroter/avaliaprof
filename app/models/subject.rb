@@ -14,6 +14,7 @@ class Subject < ActiveRecord::Base
   attr_accessible :code, :name, :description
   has_many :subcomments, :dependent => :destroy
   has_and_belongs_to_many :professors
+  has_many :sub_stars
 
 
   validates :code,  :presence => true

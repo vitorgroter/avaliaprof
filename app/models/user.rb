@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
   has_many :subcomments, :dependent => :destroy
   has_many :procomments, :dependent => :destroy
+  has_many :prof_stars
+  has_many :sub_stars
 
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
